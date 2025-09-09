@@ -34,7 +34,7 @@ def main(date, is_sort):
         dic_lst = etf.portfolio_deposit_file(code)
 
         if is_sort:
-            dic_lst.sort(key=lambda x: int(x['VALU_AMT'].replace(',', '').replace('-', '0')), reverse=True)
+            dic_lst.sort(key=lambda x: x['COMPST_ISU_NM'], reverse=False)
 
         data = [ [item['COMPST_ISU_NM'], item['COMPST_ISU_CU1_SHRS']] for item in dic_lst ]
         data.insert(0, [dt.strftime('%Y-%m-%d'), item_name])
